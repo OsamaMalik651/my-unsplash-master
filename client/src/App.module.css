@@ -5,10 +5,18 @@
 }
 html {
   height: 100%;
+  font-family: "Noto Sans";
 }
 body {
   min-height: 100vh;
   max-width: 100%;
   margin: 0 auto;
   height: 100%;
+}
+.App {
+  background-color: violet;
+  min-height: 100vh;
+  width: inherit;
+  box-sizing: border-box;
+  padding: 0px 99px;
 }
