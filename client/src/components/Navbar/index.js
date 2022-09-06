@@ -14,7 +14,7 @@ const Navbar = ({ addPhoto, setSearchTerm, searchTerm }) => {
                     </span>
                     <input
                         type="text" name="search"
-                        id="" placeholder='Search by Name'
+                        id="search" placeholder='Search by Name'
                         className={styles.Input}
                         value={searchTerm}
                         onChange={setSearchTerm}

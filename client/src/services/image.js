@@ -12,7 +12,7 @@ export const getImages = async () => {
 export const addImage = async (image) => {
     try {
         const response = await axios.post("/api/add-image", { image })
-        console.log(response)
+        return response
     } catch (err) {
         console.log(err)
     }
@@ -20,7 +20,7 @@ export const addImage = async (image) => {
 export const removeImage = async (id) => {
     try {
         const response = await axios.post("/api/delete-image", { id })
-        console.log(response)
+        return response
     } catch (err) {
         console.log(err)
     }

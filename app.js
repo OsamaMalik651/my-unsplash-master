@@ -34,7 +34,6 @@ app.get("/api/get-images", async function (req, res) {
 // ADD IMAGE TO DATABASE
 app.post("/api/add-image", async function (req, res) {
     const { image } = req.body;
-    console.log(image)
     const newImage = new Image({
         label: image.label,
         url: image.url

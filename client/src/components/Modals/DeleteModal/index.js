@@ -16,7 +16,7 @@ const DeleteModal = ({ close, deleteImage }) => {
             <h1>Are you sure?</h1>
             <div className={styles.Input}>
                 <label htmlFor="password">Password</label>
-                <input type="password" name="password" id="" placeholder='Enter password to delete'
+                <input type="password" name="password" id="password" placeholder='Enter password to delete'
                     value={password} onChange={(e) => setPassword(e.target.value)}
                 />
             </div>
