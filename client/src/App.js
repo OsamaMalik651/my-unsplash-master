@@ -1,6 +1,9 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Navbar from 'components/Navbar/index';
 import styles from "./App.module.css";
+import Modal from './components/Modals/Modal';
+import AddModal from './components/Modals/AddModal';
+import DeleteModal from './components/Modals/DeleteModal';
 
 export const images = [
   { label: "person", url: "https://images.unsplash.com/photo-1659535998184-15d6c9f5f873?ixlib=rb-1.2.1&ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80" },
@@ -16,22 +19,51 @@ export const images = [
 ];
 
 function App() {
-  // console.log(images)
+  const [showAddModal, setShowAddModal] = useState(false);
+  const [showDeleteModal, setShowDeleteModal] = useState(false);
+  const [imagesArray, setImagesArray] = useState(images);
+  const [filteredImages, setFilteredImages] = useState(images)
+  const [searchTerm, setSearchTerm] = useState("");
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    //Backend call to get images to be added here
+    let timer1 = setTimeout(() => setLoading(false), 1 * 1000);
+    return () => {
+      clearTimeout(timer1);
+    };
+  }, [])
+  useEffect(() => {
+    if (searchTerm.length === 0) setFilteredImages(images)
+    if (searchTerm) {
+      const searchedImages = imagesArray.filter(image => image.label === searchTerm).map(image => image)
+      setFilteredImages(searchedImages)
+    }
+  }, [searchTerm])
+
+  const AddImage = (image) => {
+    console.log("Add image function called with", image)
+  }
   return (
     <div className={styles.App}>
-      <Navbar />
-      <div className={styles.ImagesGrid}>
-        {images.map((image) =>
+      <Navbar addPhoto={() => setShowAddModal(true)} searhTerm={searchTerm} setSearchTerm={(e) => setSearchTerm(e.target.value)} />
+      {!loading ? <div className={styles.ImagesGrid}>
+        {filteredImages.length > 0 ? filteredImages.map((image) =>
           <div className={styles.item}>
             <img src={image.url} alt={image.label} />
             <div className={styles.OnHover}>
-              <button className={styles.DeleteButton}>delete</button>
+              <button className={styles.DeleteButton} onClick={() => setShowDeleteModal(true)}>delete</button>
               <p>{image.label}</p>
             </div>
           </div>
-
-        )}
-      </div>
+        ) : <p>image not found</p>}
+      </div> : <h1>Loading images...</h1>}
+      {showAddModal && <Modal>
+        <AddModal close={() => setShowAddModal(false)} AddImage={AddImage} />
+      </Modal>}
+      {showDeleteModal && <Modal>
+        <DeleteModal close={() => setShowDeleteModal(false)} />
+      </Modal>}
     </div>
   );
 }

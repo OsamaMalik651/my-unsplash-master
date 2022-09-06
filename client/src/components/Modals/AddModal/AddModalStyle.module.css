@@ -1,0 +1,83 @@
+.AddModalStyle {
+  background-color: white;
+  width: 100%;
+  height: 100%;
+  max-width: 620px;
+  max-height: 368px;
+  border-radius: 12px;
+  box-sizing: border-box;
+  padding: 24px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.AddModalStyle > h1 {
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 33px;
+  color: #333333;
+}
+.Input {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.Input > label {
+  font-family: "Noto Sans";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 19px;
+  color: #4f4f4f;
+}
+.Input > input {
+  border: 1px solid #4f4f4f;
+  filter: drop-shadow(0px 1px 6px rgba(0, 0, 0, 0.1));
+  border-radius: 12px;
+  height: 100%;
+  min-height: 55px;
+  padding: 18px;
+}
+input::placeholder {
+  color: #bdbdbd;
+}
+.Buttons {
+  display: flex;
+  justify-content: flex-end;
+}
+.Submit {
+  width: 100%;
+  max-width: 106px;
+  height: 100%;
+  max-height: 55px;
+  border: none;
+  background-color: #3db46d;
+  color: white;
+  border-radius: 12px;
+  font-family: "Noto Sans";
+  font-weight: 700;
+  font-size: 16px;
+  box-sizing: border-box;
+  padding: 16px 20px;
+  cursor: pointer;
+  box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.2);
+}
+.Cancel {
+  width: 100%;
+  max-width: 106px;
+  height: 100%;
+  max-height: 55px;
+  border: none;
+  color: #bdbdbd;
+  border-radius: 12px;
+  font-family: "Noto Sans";
+  font-weight: 700;
+  font-size: 16px;
+  box-sizing: border-box;
+  padding: 16px 20px;
+  line-height: 22px;
+  cursor: pointer;
+  background-color: transparent;
+}
