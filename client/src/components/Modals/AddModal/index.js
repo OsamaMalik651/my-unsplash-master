@@ -12,7 +12,6 @@ const AddModal = ({ close, AddImage }) => {
         else {
             alert("Please add label and url to add photo")
         }
-
     }
 
     return (

@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, { useEffect } from 'react'
 import ReactDOM from 'react-dom';
 import styles from "./ModalStyle.module.css"
