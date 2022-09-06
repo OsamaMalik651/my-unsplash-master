@@ -9,7 +9,7 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-mongoose.connect(`mongodb+srv://${process.env.MONGOURL}`, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(`${process.env.MONGOURL}`, { useNewUrlParser: true, useUnifiedTopology: true })
 
 //Create Schema 
 const imageSchema = {
